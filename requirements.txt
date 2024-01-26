@@ -11,5 +11,5 @@ streamlit-cards-templates
 plotly-express
 pygwalker
 seaborn
-matplotlib 
-streamlit_extras
+matplotlib
+streamlit-extras
