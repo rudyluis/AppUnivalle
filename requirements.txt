@@ -8,3 +8,4 @@ streamlit-aggrid
 numerize
 streamlit_option_menu
 streamlit-cards-templates
+plotly-express
