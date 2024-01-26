@@ -10,3 +10,4 @@ streamlit_option_menu
 streamlit-cards-templates
 plotly-express
 pygwalker
+seaborn
