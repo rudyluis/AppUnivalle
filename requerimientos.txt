@@ -1,0 +1,10 @@
+pandas
+streamlit
+pickle-mixin
+numpy
+scikit-learn
+pandas
+streamlit-aggrid
+numerize
+streamlit_option_menu
+streamlit-cards-templates
