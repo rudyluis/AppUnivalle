@@ -98,17 +98,17 @@ def metric_m(df,selected_column):
 
 def main():
 	"""Simple Login App"""
-	
-	st.set_page_config(page_title="App Datos Economia",
-					page_icon="",
+	imagen = "logo.png"
+	st.set_page_config(page_title="Encuestas Bienestar",
+					page_icon=imagen,
 					layout="wide",
 					initial_sidebar_state="auto"
 					)
-	imagen = "logo.png"
+	
 
 	# Mostrar la imagen en la barra lateral
 	st.sidebar.image(imagen,  width=200)	
-	st.subheader("📈 Encuestas Economia")
+	st.subheader("📈 Encuesta de Bienestar Financiero a Hogares - Univalle 2023")
 	with open('style.css')as f:
 		st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html = True)	
 	df = pd.read_csv("LibroEncuestaLimpia.csv",encoding='latin-1',delimiter=';')
@@ -141,7 +141,7 @@ def main():
 		
 
 	elif choice == "Resultados":
-		st.subheader('📃 Resultados de las encuestas')
+		st.subheader('📃 Resultados')
 		
 		column_list = df.columns.tolist()
 		column_list.remove('ID')
