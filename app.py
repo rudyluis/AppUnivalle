@@ -108,7 +108,7 @@ def main():
 
 	# Mostrar la imagen en la barra lateral
 	st.sidebar.image(imagen,  width=200)	
-	st.subheader("📈 Encuesta de Bienestar Financiero a Hogares - Univalle 2023")
+	st.subheader("📈 Encuesta de Bienestar Financiero a Hogares")
 	with open('style.css')as f:
 		st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html = True)	
 	df = pd.read_csv("LibroEncuestaLimpia.csv",encoding='latin-1',delimiter=';')
