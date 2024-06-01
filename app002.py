@@ -13,9 +13,17 @@ import matplotlib.pyplot as plt
 import plotly.express as px
 
 # Cargar datos
-df = pd.read_csv("cleaned.csv")
-df_pre = pd.read_csv("cleaned.csv")
-st.set_page_config(layout="wide")
+df = pd.read_csv("df/dataequipos.csv")
+df_pre = pd.read_csv("df/dataequipos.csv")
+
+imagen = "logos/logoTec.png"
+st.set_page_config(page_title="DATA TEC",
+					page_icon=imagen,
+					layout="wide",
+					initial_sidebar_state="auto"
+					)
+
+
 # Funciones de preprocesamiento
 def processor_to_int(processor):
     match = re.search(r'i(\d)\s*(\d+)?\s*(\d+)?\w*?\s*(Gen\.)?', processor)
@@ -83,7 +91,7 @@ gradient_boosting.fit(X_train, y_train)
 
 # Streamlit app
 st.title("Aplicación de Predicción de Precios de Laptops")
-
+st.sidebar.image(imagen,  width=250)	
 # Crear combos (selectboxes) para cada característica
 st.sidebar.header("Selecciona Características de la Laptop")
 brand = st.sidebar.selectbox("Marca", sorted(df_pre['Brand'].unique()))
@@ -193,3 +201,16 @@ with c2:
     feature_importance_fig = px.bar(importance_df, x='Importancia', y='Característica', orientation='h', title="Importancia de Características")
     feature_importance_fig.update_layout(xaxis_title="Importancia Relativa", yaxis_title="Característica")
     st.plotly_chart(feature_importance_fig)
+
+# ---- HIDE STREAMLIT STYLE ----
+hide_st_style = """
+				<style>
+				#MainMenu {visibility: hidden;}
+				footer {visibility: hidden;}
+				header {visibility: hidden;}
+				</style>
+				"""
+st.markdown(hide_st_style, unsafe_allow_html=True)		
+st.markdown("""
+	  Realizado por Rudy Manzaneda - 2024
+""")

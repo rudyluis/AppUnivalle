@@ -2,11 +2,15 @@ import altair as alt
 import streamlit as st
 from vega_datasets import data
 
-st.set_page_config(layout="wide")
-
+imagen = "logos/LogoCar.png"
+st.set_page_config(page_title="CARS DATA",
+					page_icon=imagen,
+					layout="wide",
+					initial_sidebar_state="auto"
+					)
 # Datos
 df = data.cars()
-
+st.title("Dashboard")
 st.write(df)
 item_list = [
     col for col in df.columns if df[col].dtype in ['float64', 'int64']]
@@ -17,7 +21,7 @@ min_year = df['YYYY'].min().item()
 max_year = df['YYYY'].max().item()
 
 # Diseño (Barra Lateral)
-st.sidebar.title("Dashboard de Registros de Autos")
+st.sidebar.image(imagen,  width=200)
 st.sidebar.markdown('###')
 st.sidebar.markdown("### *Configuraciones*")
 start_year, end_year = st.sidebar.slider(
@@ -79,3 +83,16 @@ left_column.markdown('**_' + item1 + '_ (Promedio Mensual)**')
 right_column.markdown('**_' + item2 + '_ (Promedio Mensual)**')
 left_column.altair_chart(line1, use_container_width=True)
 right_column.altair_chart(line2, use_container_width=True)
+
+# ---- HIDE STREAMLIT STYLE ----
+hide_st_style = """
+				<style>
+				#MainMenu {visibility: hidden;}
+				footer {visibility: hidden;}
+				header {visibility: hidden;}
+				</style>
+				"""
+st.markdown(hide_st_style, unsafe_allow_html=True)		
+st.markdown("""
+	  Realizado por Rudy Manzaneda - 2024
+""")

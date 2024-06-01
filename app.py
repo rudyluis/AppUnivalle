@@ -16,8 +16,8 @@ from streamlit_option_menu import option_menu
 from streamlit_extras.metric_cards import style_metric_cards
 # DB Management
 import sqlite3 
-conn = sqlite3.connect('data.db')
-c = conn.cursor()
+##conn = sqlite3.connect('data.db')
+##c = conn.cursor()
 
 color_discrete_sequence=['#FF9999', '#99CCFF', '#C2DFFF', '#FFD966', '#FFB6C1', '#C1FFC1', '#FFFF99', '#B0C4DE', '#FFD700']
 
@@ -97,24 +97,22 @@ def metric_m(df,selected_column):
 
 
 def main():
-	"""Simple Login App"""
-	imagen = "logo.png"
+
+	imagen = "logos/logoBien.png"
 	st.set_page_config(page_title="Encuestas Bienestar",
 					page_icon=imagen,
 					layout="wide",
 					initial_sidebar_state="auto"
 					)
 	
-
 	# Mostrar la imagen en la barra lateral
 	st.sidebar.image(imagen,  width=200)	
 	st.subheader("📈 Encuesta de Bienestar Financiero a Hogares")
 	with open('style.css')as f:
 		st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html = True)	
-	df = pd.read_csv("LibroEncuestaLimpia.csv",encoding='latin-1',delimiter=';')
-	menu = ["Resultados","Analisis Exploratorio","Analisis Dinamico","Matriz de Correlacion"]
-	
-	##menu = ["Inicio","Tablas","Analisis Exploratorio","Matriz de Correlacion"]
+	df = pd.read_csv("df/LibroEncuestaLimpia.csv",encoding='latin-1',delimiter=';')
+	menu = ["Inicio","Analisis Exploratorio","Matriz de Correlacion"]
+
 	iconos=["house","book","book","cast"],
 	with st.sidebar:
 			choice=option_menu(
@@ -140,7 +138,7 @@ def main():
 		stc.html(pyg_html,scrolling=True,height=1000)
 		
 
-	elif choice == "Resultados":
+	elif choice == "Inicio":
 		st.subheader('📃 Resultados')
 		
 		column_list = df.columns.tolist()

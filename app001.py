@@ -79,3 +79,16 @@ if archivo_subido is not None:
 # Color Picker en la barra lateral
 color = st.sidebar.color_picker('Elige un color', '#00f900')
 st.write('El color actual es', color)
+
+# ---- HIDE STREAMLIT STYLE ----
+hide_st_style = """
+				<style>
+				#MainMenu {visibility: hidden;}
+				footer {visibility: hidden;}
+				header {visibility: hidden;}
+				</style>
+				"""
+st.markdown(hide_st_style, unsafe_allow_html=True)		
+st.markdown("""
+	  Realizado por Rudy Manzaneda - 2024
+""")
