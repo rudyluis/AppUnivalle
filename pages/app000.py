@@ -7,7 +7,7 @@ from sklearn.preprocessing import LabelEncoder
 from pandas import set_option
 from st_aggrid import AgGrid
 import plotly.express as px
-import pygwalker as pyg 
+##import pygwalker as pyg 
 import streamlit.components.v1 as stc 
 import seaborn as sns
 import matplotlib.pyplot as plt
@@ -133,9 +133,9 @@ def main():
 		##st.write(df)
 		metrics(df)
 		st.write("Contenido del archivo CSV:")
-		pyg_html = pyg.walk(df,return_html=True)
+		##pyg_html = pyg.walk(df,return_html=True)
             # Render with components
-		stc.html(pyg_html,scrolling=True,height=1000)
+		##stc.html(pyg_html,scrolling=True,height=1000)
 		
 
 	elif choice == "Inicio":
