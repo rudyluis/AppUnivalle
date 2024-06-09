@@ -23,7 +23,7 @@ st.set_page_config(page_title="DATA TEC",
 					initial_sidebar_state="auto"
 					)
 
-
+st.sidebar.image(imagen,  width=250)	
 # Funciones de preprocesamiento
 def processor_to_int(processor):
     match = re.search(r'i(\d)\s*(\d+)?\s*(\d+)?\w*?\s*(Gen\.)?', processor)
@@ -91,7 +91,7 @@ gradient_boosting.fit(X_train, y_train)
 
 # Streamlit app
 st.title("Aplicación de Predicción de Precios de Laptops")
-st.sidebar.image(imagen,  width=250)	
+
 # Crear combos (selectboxes) para cada característica
 st.sidebar.header("Selecciona Características de la Laptop")
 brand = st.sidebar.selectbox("Marca", sorted(df_pre['Brand'].unique()))
