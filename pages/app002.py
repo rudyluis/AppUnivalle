@@ -16,7 +16,7 @@ import plotly.express as px
 df = pd.read_csv("df/dataequipos.csv")
 df_pre = pd.read_csv("df/dataequipos.csv")
 
-imagen = "logos/logo.png"
+imagen = "logos/logoTec.png"
 st.set_page_config(page_title="DATA TEC",
 					page_icon=imagen,
 					layout="wide",
