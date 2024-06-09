@@ -23,7 +23,7 @@ st.set_page_config(page_title="DATA TEC",
 					initial_sidebar_state="auto"
 					)
 
-
+st.sidebar.image(imagen,  width=250)	
 # Funciones de preprocesamiento
 def processor_to_int(processor):
     match = re.search(r'i(\d)\s*(\d+)?\s*(\d+)?\w*?\s*(Gen\.)?', processor)
