@@ -13,3 +13,4 @@ pygwalker
 seaborn
 matplotlib
 streamlit-extras
+vega-datasets
