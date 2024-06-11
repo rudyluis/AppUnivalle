@@ -5,11 +5,7 @@ from sklearn.preprocessing import LabelEncoder
 from sklearn.model_selection import train_test_split
 from sklearn.tree import DecisionTreeRegressor
 from sklearn.ensemble import RandomForestRegressor, GradientBoostingRegressor
-from sklearn.metrics import mean_squared_error, r2_score
 import re
-import seaborn as sns
-import matplotlib.pyplot as plt
-
 import plotly.express as px
 
 # Cargar datos
@@ -18,12 +14,13 @@ df_pre = pd.read_csv("df/dataequipos.csv")
 
 imagen = "logos/logo.png"
 st.set_page_config(page_title="DATA TEC",
-					page_icon=imagen,
-					layout="wide",
-					initial_sidebar_state="auto"
-					)
+                   page_icon=imagen,
+                   layout="wide",
+                   initial_sidebar_state="auto"
+                   )
 
-st.sidebar.image(imagen,  width=250)	
+st.sidebar.image(imagen, width=250)
+
 # Funciones de preprocesamiento
 def processor_to_int(processor):
     match = re.search(r'i(\d)\s*(\d+)?\s*(\d+)?\w*?\s*(Gen\.)?', processor)
@@ -183,7 +180,7 @@ st.plotly_chart(price_distribution_fig)
 # Relación entre características y precio
 st.write("#### Relación entre Características y Precio")
 feature = st.selectbox("Selecciona característica para graficar contra Precio", ['Screen_Size', 'RAM', 'Processor_Int', 'Resolution_Int'])
-c1,c2=st.columns(2)
+c1, c2 = st.columns(2)
 with c1:
     # Relación entre características y precio
     feature_price_fig = px.scatter(df, x=feature, y='Price', title=f"Precio vs {feature}", labels={feature: feature, 'Price': 'Precio'})
@@ -191,10 +188,8 @@ with c1:
     st.plotly_chart(feature_price_fig)
 with c2:
     # Importancia de características
-
     importances = random_forest.feature_importances_
     indices = np.argsort(importances)[::-1]
-
 
     # Importancia de características
     importance_df = pd.DataFrame({'Característica': X_train.columns[indices], 'Importancia': importances[indices]})
@@ -204,13 +199,13 @@ with c2:
 
 # ---- HIDE STREAMLIT STYLE ----
 hide_st_style = """
-				<style>
-				#MainMenu {visibility: hidden;}
-				footer {visibility: hidden;}
-				header {visibility: hidden;}
-				</style>
-				"""
-st.markdown(hide_st_style, unsafe_allow_html=True)		
+                <style>
+                #MainMenu {visibility: hidden;}
+                footer {visibility: hidden;}
+                header {visibility: hidden;}
+                </style>
+                """
+st.markdown(hide_st_style, unsafe_allow_html=True)
 st.markdown("""
-	  Realizado por Rudy Manzaneda - 2024
+      Realizado por Rudy Manzaneda - 2024
 """)

@@ -1,23 +1,13 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-import pickle
 import altair as alt
 from sklearn.preprocessing import LabelEncoder
-from pandas import set_option
-from st_aggrid import AgGrid
 import plotly.express as px
-##import pygwalker as pyg 
-import streamlit.components.v1 as stc 
-import seaborn as sns
-import matplotlib.pyplot as plt
 import random
 from streamlit_option_menu import option_menu
 from streamlit_extras.metric_cards import style_metric_cards
-# DB Management
-import sqlite3 
-##conn = sqlite3.connect('data.db')
-##c = conn.cursor()
+
 
 color_discrete_sequence=['#FF9999', '#99CCFF', '#C2DFFF', '#FFD966', '#FFB6C1', '#C1FFC1', '#FFFF99', '#B0C4DE', '#FFD700']
 
